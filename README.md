@@ -28,6 +28,9 @@ MySQL atau MariaDB
 
 Langkah-langkah
 
+# Import Database
+$ Import database yang telah diberikan ke dalam database local (sales_data_task.sql).
+
 # Clone repository
 $ git clone https://github.com/username/repository-name.git
 $ cd repository-name/backend
@@ -73,7 +76,7 @@ Frontend akan berjalan di http://localhost:3000.
 Pastikan file .env di backend sudah diatur dengan database yang sesuai.
 Di frontend, jika perlu mengubah endpoint API, sesuaikan di src/config.js:
 
-export const API_URL = "http://127.0.0.1:8000/api";
+export const API_URL = "http://127.0.0.1:8000";
 
 📜 Struktur Folder
 
