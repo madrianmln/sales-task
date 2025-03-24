@@ -21,7 +21,14 @@ class ProdukController extends Controller
 
     public function store(Request $request)
     {
-        $produk = Produk::create($request->all());
+        $validated = $request->validate([
+            'nama_produk' => 'required|string|max:255',
+            'stok' => 'required|integer',
+            'jenis_produk_id' => 'required|exists:jenis_produks,id',
+        ]);
+
+        $produk = Produk::create($validated);
+
         return response()->json($produk, 201);
     }
 

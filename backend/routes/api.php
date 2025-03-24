@@ -3,15 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\BarangController;
+use App\Http\Controllers\JenisProdukController;
 
-Route::prefix('api')->group(function () {
-    Route::apiResource('produks', ProdukController::class);
-    Route::put('produks/{id}', [ProdukController::class, 'update']);
-    Route::apiResource('transaksis', TransaksiController::class);
-    Route::get('barangs', [BarangController::class, 'index']);
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/jenis-produks', [JenisProdukController::class, 'index']);
+Route::apiResource('produks', ProdukController::class);
+Route::post('/produks', [ProdukController::class, 'store']);
+Route::put('/produks/{id}', [ProdukController::class, 'update']);
+Route::apiResource('transaksis', TransaksiController::class);
